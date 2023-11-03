@@ -66,7 +66,7 @@ const createDestinationsTable = async () => {
             city varchar(100) NOT NULL,
             country varchar(100) NOT NULL,
             img_url text NOT NULL,
-            flag_img_url text NOT NULL
+            flag_img_url text
         );
     `;
   try {

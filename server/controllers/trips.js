@@ -49,8 +49,8 @@ const updateTrip = async (request, response) => {
       start_date,
       end_date,
       total_cost,
-    } = req.body;
-    const id = parseInt(req.params.id);
+    } = request.body;
+    const id = parseInt(request.params.id);
 
     const results = await pool.query(
       "UPDATE trips SET title = $1, description = $2, img_url = $3, num_days = $4, start_date = $5, end_date = $6, total_cost= $7 WHERE id = $8",
@@ -66,9 +66,9 @@ const updateTrip = async (request, response) => {
       ]
     );
 
-    res.status(200).json(results.rows);
+    response.status(200).json(results.rows);
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    response.status(409).json({ error: error.message });
   }
 };
 
